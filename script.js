@@ -1,18 +1,13 @@
 //your JS code here. If required.
- const getWeatherBtn = document.getElementById('getWeatherBtn');
- const weatherDataDiv = document.getElementById('weatherData');
-
-        getWeatherBtn.addEventListener('click', async () => {
-            try {
-                const url = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid=87e4d8152db8377e68f0144c06dbc0e3';
-
-                const response = await fetch(url);
-                const weatherData = await response.json();
-
-                const weatherDescription = weatherData.weather[0].description;
-
-                weatherDataDiv.textContent = `Current weather in London: ${weatherDescription}`;
-            } catch (error) {
-                console.log(error);
-            }
-        });
+ const API_key = '87e4d8152db8377e68f0144c06dbc0e3';
+function getCurrentWeather() {
+  const URL =
+    `http://api.weatherapi.com/v1/current.json?key=${API_key}/q='london'`;
+  fetch(URL)
+    .then((res) => res.json())
+    .then((data) => {
+        // console.log(data);
+        const weatherData = document.getElementById('weatherData');
+        weatherData.innerText = `Current Weather in london: ${data.error.message}` //
+    }).catch((er=> console.log(er)));
+}
