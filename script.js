@@ -1,7 +1,7 @@
-const API_key = '0190468170b148c89f091358232406';
+const key = '87e4d8152db8377e68f0144c06dbc0e3';
 
 function getCurrentWeather() {
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${API_key}`;
+  const URL = `https://api.openweathermap.org/data/2.5/weather?q=vadodara&appid=${key}`;
 
   fetch(URL)
     .then((res) => res.json())
